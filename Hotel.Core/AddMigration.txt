@@ -1,0 +1,1 @@
+Add-Migration update -Project Hotel.Infrastructure -StartupProject Hotel.API
