@@ -6,8 +6,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY . . 
 RUN ls -al  # Kiểm tra file trong /src
-RUN dotnet restore "Hotel.API.csproj"
-RUN dotnet publish "Hotel.API.csproj" -c Release -o /app/publish
+RUN dotnet restore "Hotel.API/Hotel.API.csproj"  # Chỉ định đúng đường dẫn
+RUN dotnet publish "Hotel.API/Hotel.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
