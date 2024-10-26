@@ -5,10 +5,10 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY . .
-RUN dotnet restore "Hotel_Management_BackEnd.csproj"
-RUN dotnet publish "Hotel_Management_BackEnd.csproj" -c Release -o /app/publish
+RUN dotnet restore "Hotel.API.csproj"
+RUN dotnet publish "Hotel.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "Hotel_Management_BackEnd.dll"]
+ENTRYPOINT ["dotnet", "Hotel.API.dll"]
